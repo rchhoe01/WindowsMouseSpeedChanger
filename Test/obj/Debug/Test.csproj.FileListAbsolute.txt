@@ -25,3 +25,12 @@ C:\Users\lenovo\AppData\Local\GitHub\TutorialRepository_d0aa732a2b4666b3029e2320
 C:\Users\lenovo\AppData\Local\GitHub\TutorialRepository_d0aa732a2b4666b3029e2320f1a06cd39e99c9fc\new-repo\MouseDrawingProgram\Test\obj\Debug\Test.Form1.resources
 C:\Users\lenovo\AppData\Local\GitHub\TutorialRepository_d0aa732a2b4666b3029e2320f1a06cd39e99c9fc\new-repo\MouseDrawingProgram\Test\obj\Debug\Test.Properties.Resources.resources
 C:\Users\lenovo\AppData\Local\GitHub\TutorialRepository_d0aa732a2b4666b3029e2320f1a06cd39e99c9fc\new-repo\MouseDrawingProgram\Test\obj\Debug\Test.csproj.GenerateResource.Cache
+C:\Users\lenovo\Documents\GitHub\MouseSpeedChanger\Test\bin\Debug\Test.exe.config
+C:\Users\lenovo\Documents\GitHub\MouseSpeedChanger\Test\obj\Debug\Test.exe
+C:\Users\lenovo\Documents\GitHub\MouseSpeedChanger\Test\obj\Debug\Test.pdb
+C:\Users\lenovo\Documents\GitHub\MouseSpeedChanger\Test\bin\Debug\Test.exe
+C:\Users\lenovo\Documents\GitHub\MouseSpeedChanger\Test\bin\Debug\Test.pdb
+C:\Users\lenovo\Documents\GitHub\MouseSpeedChanger\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\lenovo\Documents\GitHub\MouseSpeedChanger\Test\obj\Debug\Test.Form1.resources
+C:\Users\lenovo\Documents\GitHub\MouseSpeedChanger\Test\obj\Debug\Test.Properties.Resources.resources
+C:\Users\lenovo\Documents\GitHub\MouseSpeedChanger\Test\obj\Debug\Test.csproj.GenerateResource.Cache

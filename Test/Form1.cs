@@ -28,7 +28,9 @@ namespace Test
         public int id;
         public Dictionary<CheckBox, KeyModifiers> checkBoxModifier;
         public bool canChange;
-        
+        public Dictionary<int, double> multipliers;
+        public double val1 = 0;
+        public double val2 = 0;
 
         [DllImport("User32.dll")]
         static extern Boolean SystemParametersInfo(
@@ -51,6 +53,29 @@ namespace Test
             checkBoxModifier.Add(checkBox2, KeyModifiers.Control);
             checkBoxModifier.Add(checkBox3, KeyModifiers.Shift);
             checkBoxModifier.Add(checkBox4, KeyModifiers.Windows);
+
+            multipliers = new Dictionary<int, double>();
+            multipliers.Add(1, 0.03125);
+            multipliers.Add(2, 0.0625);
+            multipliers.Add(3, 0.125);
+            multipliers.Add(4, 0.25);
+            multipliers.Add(5, 0.375);
+            multipliers.Add(6, 0.5);
+            multipliers.Add(7, 0.625);
+            multipliers.Add(8, 0.75);
+            multipliers.Add(9, 0.875);
+            multipliers.Add(10, 1);
+            multipliers.Add(11, 1.25);
+            multipliers.Add(12, 1.5);
+            multipliers.Add(13, 1.75);
+            multipliers.Add(14, 2.0);
+            multipliers.Add(15, 2.75);
+            multipliers.Add(16, 2.5);
+            multipliers.Add(17, 2.75);
+            multipliers.Add(18, 3.0);
+            multipliers.Add(19, 3.25);
+            multipliers.Add(20, 3.5);
+
 
             
             trackBar1.Value = GetMouseSpeed();
@@ -113,6 +138,10 @@ namespace Test
                 0,
                 MOUSESPEED,
                 0);
+            label6.Text = multipliers[trackBar1.Value].ToString();
+            val1 = (double)(numericUpDown1.Value) * multipliers[trackBar1.Value];
+            label9.Text = val1.ToString();
+            
         }
 
         private void trackBar2_ValueChanged(object sender, EventArgs e)
@@ -123,6 +152,9 @@ namespace Test
                 0,
                 MOUSESPEED,
                 0);
+            label7.Text = multipliers[trackBar2.Value].ToString();
+            val2 = (double)(numericUpDown1.Value) * multipliers[trackBar2.Value];
+            label10.Text = val2.ToString();
         }
 
         private static unsafe int GetMouseSpeed()
@@ -162,7 +194,7 @@ namespace Test
                 0,
                 MOUSESPEED,
                 0);
-            SaveSettings(trackBar2.Value, ref currentKey, currentModifiers);
+            SaveSettings(trackBar2.Value, ref currentKey, currentModifiers, numericUpDown1.Value);
         }
 
         private void checkBox_Click(object sender, EventArgs e)
@@ -219,7 +251,10 @@ namespace Test
                                     break;
                                 case 3:
                                     currentModifiers = (KeyModifiers)Convert.ToUInt32(line);
-                                    break; 
+                                    break;
+                                case 4:
+                                    numericUpDown1.Value = Convert.ToDecimal(line);
+                                    break;
                                 default:
                                     break;
                             }
@@ -235,16 +270,17 @@ namespace Test
             {
                 //Console.WriteLine("The file could not be read:");
                // Console.WriteLine(e.Message);
-                SaveSettings(trackBar2.Value, ref currentKey, currentModifiers);
+                SaveSettings(trackBar2.Value, ref currentKey, currentModifiers, numericUpDown1.Value);
             }
         }
-        private void SaveSettings(int i, ref Keys k, KeyModifiers km) {
+        private void SaveSettings(int i, ref Keys k, KeyModifiers km, decimal dpi) {
             using (StreamWriter sw = new StreamWriter("MouseDraw.cfg"))
             {                
                 sw.WriteLine("[Settings]");
                 sw.WriteLine("DrawingSpeed = " + i);
                 sw.WriteLine("Keys = " + (int)k);
-                sw.WriteLine("KeyModifiers = " + (int)km);      
+                sw.WriteLine("KeyModifiers = " + (int)km);
+                sw.WriteLine("DPI = " + dpi);   
             }
             
            
@@ -278,6 +314,14 @@ namespace Test
         {
             HotKeyManager_HotKeyPressed();
             checkBox5.Checked = DRAWING ? true : false;
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            val1 = (double)(numericUpDown1.Value) * multipliers[trackBar1.Value];
+            val2 = (double)(numericUpDown1.Value) * multipliers[trackBar2.Value];
+            label9.Text = val1.ToString();
+            label10.Text = val2.ToString();
         }
     }
     
